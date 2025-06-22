@@ -6,17 +6,32 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(width: MediaQuery.of(context).size.width, height: 125, child:  Card(child: Row(children: <Widget> [
-          Container(
-            height: 125,
-            width: 100,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Container()
+      body: Column(children: <Widget> [
+        _RecipesCard(context),
+        _RecipesCard(context)
+      ])
+    );
+  }
+
+  Widget _RecipesCard(BuildContext context){
+    return Container(width: MediaQuery.of(context).size.width, height: 125, child:  Card(child: Row(children: <Widget> [
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Container(
+              height: 125,
+              width: 100,
+
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Container()
+              ),
             ),
           ),
           SizedBox(width: 26),
-          Column(children: <Widget> [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget> [
             Text('Lasagna'),
             Text('Jesud David'),
             Container(
@@ -26,7 +41,6 @@ class HomeScreen extends StatelessWidget {
             )
       
           ],)
-        ],),),),
-    );
+        ],),),);
   }
 }
